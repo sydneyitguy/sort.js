@@ -1,5 +1,7 @@
 /**
  * MergeSort Javascript implementation
+ *  - Best: nlog(n) / Average: nlog(n) / Worst: nlog(n)
+ *  - Memory: n / Stable
  *
  * @author: Sebastian Kim
  */
@@ -40,6 +42,6 @@ function mergesort(A) {
   return merge(left, right);
 }
 
-Array.prototype.mergesort = function() {
+Array.prototype.mergeSort = function() {
   return mergesort(this);
 }
