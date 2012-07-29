@@ -16,6 +16,7 @@
   <script src="Array.QuickSort.js"></script>
   <script src="Array.MergeSort.js"></script>
   <script src="Array.InsertionSort.js"></script>
+  <script src="Array.BubbleSort.js"></script>
 
   <script type="text/javascript">
     // Generate a random array
@@ -51,10 +52,14 @@
       deepEqual(a.insertionSort(), a, "Should return itself");
     });
 
+    test( "InsertionSort: Array size = 1", function() {
+      var a = [4];
+      deepEqual(a.bubbleSort(), a, "Should return itself");
+    });
+
     var LENGTH = 1000;
     var RANGE = 10000;
 
-    // QuickSort test
     test( "QuickSort: Random array", function() {
       random = generateRandomArray(LENGTH, RANGE);
       copy = random.slice(0); // deep copy
@@ -62,7 +67,6 @@
       deepEqual(copy.quickSort(), random.sort(sortNumber), "All elements should be the same");
     });
 
-    // MergeSort test
     test( "MergeSort: Random array", function() {
       random = generateRandomArray(LENGTH, RANGE);
       copy = random.slice(0);
@@ -70,12 +74,18 @@
       deepEqual(copy.mergeSort(), random.sort(sortNumber), "All elements should be the same");
     });
 
-    // InsertionSort test
     test( "InsertionSort: Random array", function() {
       var random = generateRandomArray(LENGTH, RANGE);
       copy = random.slice(0);
 
       deepEqual(copy.insertionSort(), random.sort(sortNumber), "All elements should be the same");
+    });
+
+    test( "BubbleSort: Random array", function() {
+      var random = generateRandomArray(LENGTH, RANGE);
+      copy = random.slice(0);
+
+      deepEqual(copy.bubbleSort(), random.sort(sortNumber), "All elements should be the same");
     });
 
     /**
@@ -84,7 +94,7 @@
     Benchmark.STDOUT = document.getElementById('benchmark');
 
     var COUNT = 1000;
-    var NUM_COPY = 3;
+    var NUM_COPY = 4;
     var randoms = [], copies = [];
 
     // Prepare Data
@@ -119,6 +129,11 @@
       InsertionSort : function() {
         for(var i = 0; i < COUNT; i++) {
           copies[2][i].insertionSort();
+        }
+      },
+      BubbleSort : function() {
+        for(var i = 0; i < COUNT; i++) {
+          copies[3][i].bubbleSort();
         }
       }
     });
