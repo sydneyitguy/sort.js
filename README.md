@@ -50,9 +50,9 @@
 
   - Array size = 1000 * 1000 times
     >------------------------------
-    >        NativeSort: (   0.1630)
-    >         QuickSort: (   0.2270)
-    >         MergeSort: (   1.6610)
-    >    InsertionSort: (   43.2410)
-    >        BubbleSort: (   5.1170)
-    >---------------- total: 50.4090
+    >         NativeSort: (   0.1630)
+    >          QuickSort: (   0.2270)
+    >          MergeSort: (   1.6610)
+    >     InsertionSort: (   43.2410)
+    >         BubbleSort: (   5.1170)
+    >----------------- total: 50.4090
