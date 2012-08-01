@@ -16,56 +16,36 @@ function sortNumber(a,b) {
 /**
  * Unit Tests
  * -------------------------------------------------- */
-test( "QuickSort: Array size = 1", function() {
+test( "When array size = 1", function() {
   var a = [1];
-  deepEqual(a.quickSort(), a, "Should return itself");
-});
-
-test( "MergeSort: Array size = 1", function() {
-  var a = [2];
-  deepEqual(a.mergeSort(), a, "Should return itself");
-});
-
-test( "InsertionSort: Array size = 1", function() {
-  var a = [3];
-  deepEqual(a.insertionSort(), a, "Should return itself");
-});
-
-test( "InsertionSort: Array size = 1", function() {
-  var a = [4];
-  deepEqual(a.bubbleSort(), a, "Should return itself");
+  deepEqual(a.quickSort(), a, "Quick Sort");
+  deepEqual(a.mergeSort(), a, "Merge Sort");
+  deepEqual(a.insertionSort(), a, "Insertion Sort");
+  deepEqual(a.bubbleSort(), a, "Bubble Sort");
 });
 
 var LENGTH = 1000;
 var RANGE = 10000;
 
-test( "QuickSort: Random array", function() {
-  random = generateRandomArray(LENGTH, RANGE);
-  copy = random.slice(0); // deep copy
-
-  deepEqual(copy.quickSort(), random.sort(sortNumber), "All elements should be the same");
-});
-
-test( "MergeSort: Random array", function() {
-  random = generateRandomArray(LENGTH, RANGE);
-  copy = random.slice(0);
-
-  deepEqual(copy.mergeSort(), random.sort(sortNumber), "All elements should be the same");
-});
-
-test( "InsertionSort: Random array", function() {
+test( "Sort a random array", function() {
   var random = generateRandomArray(LENGTH, RANGE);
-  copy = random.slice(0);
+  var copy = random.slice(0); // deep copy
+  var copy2 = random.slice(0);
+  deepEqual(copy.quickSort(), copy2.sort(sortNumber), "Quick Sort");
 
-  deepEqual(copy.insertionSort(), random.sort(sortNumber), "All elements should be the same");
+  copy = random.slice(0);
+  copy2 = random.slice(0);
+  deepEqual(copy.mergeSort(), copy2.sort(sortNumber), "Merge Sort");
+
+  copy = random.slice(0);
+  copy2 = random.slice(0);
+  deepEqual(copy.insertionSort(), copy2.sort(sortNumber), "Insertion Sort");
+
+  copy = random.slice(0);
+  copy2 = random.slice(0);
+  deepEqual(copy.bubbleSort(), copy2.sort(sortNumber), "Bubble Sort");
 });
 
-test( "BubbleSort: Random array", function() {
-  var random = generateRandomArray(LENGTH, RANGE);
-  copy = random.slice(0);
-
-  deepEqual(copy.bubbleSort(), random.sort(sortNumber), "All elements should be the same");
-});
 
 /**
  * Benchmarks
